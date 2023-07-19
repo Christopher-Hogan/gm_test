@@ -1,0 +1,211 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    Please do not make change in this document. You may make changes in m-inputs-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+//Precheck if filled is the default method. If so, styling will be applied.
+@if $m-inputs-outlined {
+    @each $m-inputs-widget in $m-inputs-widget-list {
+        .m-inputs--bg-secondary {
+            &#{$m-inputs-widget} {
+                position: relative;
+                min-height: 56px;
+
+                #{$m-inputs-control-label-div} {
+                    position: absolute;
+                    top: -8px;
+                    left: 12px;
+                    max-width: calc(100% - 24px);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: 12px;
+                    padding: 0px 4px;
+                    font-weight: 400;
+                    transition: .1s ease-out;
+                    transform-origin: left top;
+                    pointer-events: none;
+                    color: $m-inputs-outlined-label;
+                    background-color: $m-inputs-outlined-label-bg-secondary;
+                }
+
+                #{$m-inputs-form-control-div} {
+                    min-height: inherit;
+                    border-width: 0px;
+                    box-shadow: 0 0 0 1px $m-inputs-outlined-border-color;
+                    border-radius: 4px;
+                    padding: 16px;
+                    transition: .1s ease-out;
+                }
+
+                input:not([readonly]),
+                .form-control:not([readonly]) {
+                    background-color: $m-inputs-outlined-label-bg-secondary;
+                    box-shadow: 0 0 0 1px $m-inputs-outlined-border-color;
+                }
+
+                .form-control-static {
+                    border-color: transparent;
+                    background-color: transparent;
+                    box-shadow: 0 0 0 0px transparent;
+                    margin-top: 2px;
+                }
+            }
+
+            //Enabled state, without input value
+
+            &#{$m-inputs-widget}:has(input[value=""]),
+            &#{$m-inputs-widget}:has(textarea:empty):not(:has(textarea:placeholder-shown)):not(:has(textarea:focus)) {
+                &:not(:has(input:placeholder-shown)) {
+                    #{$m-inputs-control-label-div} {
+                        top: 18px;
+                        font-size: 14px;
+                        height: auto;
+                        color: $form-input-placeholder-color;
+                    }
+                }
+            }
+
+            //Enabled state, focussed
+            &#{$m-inputs-widget}:has(input:focus):not(.has-error),
+            &#{$m-inputs-widget}:has(select:focus):not(.has-error),
+            &#{$m-inputs-widget}:has(textarea:focus):not(.has-error) {
+
+                #{$m-inputs-control-label-div} {
+                    color: $brand-primary !important;
+                    background-color: $m-inputs-outlined-label-bg-secondary;
+                }
+
+                #{$m-inputs-form-control-div} {
+                    box-shadow: 0 0 0 2px $brand-primary !important;
+                }
+            }
+
+            //Enabled state, focussed, without input value
+            &#{$m-inputs-widget}:has(input[value=""]):has(input:focus),
+            &#{$m-inputs-widget}:has(textarea:empty):has(textarea:focus) {
+
+                #{$m-inputs-control-label-div} {
+                    top: -8px;
+                    font-size: 12px;
+                    height: auto;
+                }
+            }
+
+            //Enabled state, hover without focus
+            &#{$m-inputs-widget}:has(input:hover),
+            &#{$m-inputs-widget}:has(textarea:hover),
+            &#{$m-inputs-widget}:has(button:hover),
+            &#{$m-inputs-widget}:has(select:hover) {
+
+                #{$m-inputs-form-control-div} {
+                    &:not([disabled]) {
+                        background-color: $m-inputs-outlined-bg-enabled-secondary;
+                        box-shadow: 0 0 0 1px $m-inputs-outlined-border-color-hover;
+                    }
+                }
+            }
+
+            //Readonly state
+            &#{$m-inputs-widget}:has(input[readonly]),
+            &#{$m-inputs-widget}:has(textarea[readonly]),
+            &#{$m-inputs-widget}:has(select[readonly]) {
+                input {
+                    background-color: $m-inputs-outlined-bg-enabled-secondary;
+                    box-shadow: 0 0 0 1px $m-inputs-outlined-border-color;
+                }
+            }
+
+            //Disabled state
+            &#{$m-inputs-widget}:has(input[disabled]),
+            &#{$m-inputs-widget}:has(textarea[disabled]),
+            &#{$m-inputs-widget}:has(select[disabled]) {
+                label {
+                    color: $m-inputs-outlined-disabled !important;
+                }
+
+                input,
+                textarea,
+                select {
+                    box-shadow: 0 0 0 1px $m-inputs-outlined-disabled !important;
+                    color: $m-inputs-outlined-disabled !important;
+                }
+            }
+
+
+            // Error state
+            &#{$m-inputs-widget}.has-error {
+                #{$m-inputs-control-label-div} {
+                    color: $brand-danger !important;
+                }
+
+                #{$m-inputs-form-control-div} {
+                    box-shadow: 0 0 0 1px $brand-danger;
+
+                    &:hover {
+                        box-shadow: 0 0 0 1px darken($brand-danger, 25%) !important;
+                    }
+
+                    &:focus {
+                        box-shadow: 0 0 0 2px $brand-danger !important;
+                    }
+                }
+
+                .alert {
+                    margin-top: 0px;
+                    padding: 4px 16px 0px 16px;
+                    background-color: transparent;
+                    border: 0px;
+                    color: $brand-danger;
+                }
+            }
+
+            // Without label
+            &#{$m-inputs-widget}:not(:has(#{$m-inputs-control-label-div})) {
+                #{$m-inputs-form-control-div} {
+                    padding: 16px;
+                }
+
+                &:has(input:focus) {
+                    #{$m-inputs-form-control-div} {
+                        padding: 16px 16px 15px 16px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    // Additional styling for datepicker widget & reference set selector widget
+
+    .m-inputs--bg-secondary#{$m-inputs-widget-datepicker},
+    .m-inputs--bg-secondary#{$m-inputs-widget-referencesetselector} {
+
+        #{$m-inputs-control-label-div} {
+            top: -8px !important;
+            font-size: 12px !important;
+        }
+
+        #{$m-inputs-form-control-div} {
+            padding-right: 52px;
+        }
+
+        button,
+        .btn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 16px;
+            margin: 0px;
+            background-color: transparent;
+            border-color: transparent;
+
+            .glyphicon {
+                font-size: 20px;
+                color: $m-inputs-outlined-input;
+            }
+        }
+    }
+}

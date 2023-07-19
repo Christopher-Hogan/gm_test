@@ -1,0 +1,12 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    Please do not make change in this document. You may make changes in m-inputs-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+@import 'm-inputs-filled-core/m-inputs-filled';
+@import 'm-inputs-filled-widgets/m-inputs-filled-grid';
+@import 'm-inputs-filled-widgets/m-inputs-filled-autocompletmultiselect';
+@import 'm-inputs-filled-widgets/m-inputs-filled-radio-buttons';
+@import 'm-inputs-filled-legacy/m-inputs-legacy';

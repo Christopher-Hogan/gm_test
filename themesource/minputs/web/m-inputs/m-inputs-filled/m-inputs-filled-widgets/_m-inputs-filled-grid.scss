@@ -1,0 +1,99 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    Please do not make change in this document. You may make changes in m-inputs-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+// Styling for the default Mendix grid search field.
+
+.mx-grid-toolbar,
+.mx-grid-search-inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mx-grid-search-item {
+    display: flex;
+    flex-direction: column;
+
+    .mx-grid-search-input {
+        height: auto;
+        min-width: 210px;
+
+    }
+}
+
+.mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-label {
+    width: 190px;
+
+    label {
+        position: absolute;
+        top: 8px;
+        left: 20px;
+        width: 140px;
+        font-size: 12px;
+        font-weight: 400;
+        transition: .1s ease-out;
+        transform-origin: left top;
+        pointer-events: none;
+        color: $m-inputs-filled-label;
+        padding: 0px;
+        text-align: start;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+.mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input {
+    min-height: inherit;
+    min-width: 210px;
+    width: auto;
+
+    .form-control,
+    select.form-control {
+        height: auto;
+        font-size: 14px;
+        padding: 24px 16px 8px 16px;
+
+        &:active,
+        &:focus {
+            padding: 24px 16px 7px 16px;
+        }
+    }
+
+    button,
+    .btn {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        min-height: 100%;
+        padding: 16px;
+        margin: 0px;
+        background-color: transparent;
+        border-color: transparent;
+
+        .glyphicon {
+            font-size: 20px;
+            color: $m-inputs-filled-input;
+        }
+    }
+}
+
+// Dropdown configuration
+
+.mx-grid .mx-grid-searchbar .mx-grid-search-item{
+    &:has(option) {
+        &:has(select:active, select:focus){
+            label{
+                color: $brand-primary;
+            }
+            select.form-control {
+                border-bottom-width: 2px;
+                border-bottom-color: $brand-primary;
+            }            
+        }
+    } 
+}

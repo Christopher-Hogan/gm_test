@@ -1,0 +1,30 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    Please do not make change in this document. You may make changes in m-inputs-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+// Fall back options for legacy browsers. :has selector is not always supported.
+
+@mixin m-inputs-legacy {
+    @each $m-inputs-widget in $m-inputs-widget-list {
+        #{$m-inputs-widget} {
+            #{$m-inputs-control-label-div} {
+                top: -8px !important;
+                font-size: 12px!important;
+                color: $m-inputs-filled-label!important;
+            }
+        }
+    }
+}
+
+//If a browser does not support :has selector
+@supports not (selector(:has(*))) {
+    @include m-inputs-legacy();
+}
+
+//Due to Firefox not supporting :has selector yet (in beta).
+@supports (-moz-appearance:none ){
+    @include m-inputs-legacy();
+}

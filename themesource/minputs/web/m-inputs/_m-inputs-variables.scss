@@ -1,0 +1,74 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    You may make changes here if your like. This is designed to work straight out of the box.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+$m-inputs-filled: false;
+$m-inputs-outlined: true;
+
+
+// Variables used for filled
+$m-inputs-filled-bg-enabled: #f5f5f5; //replace this with $form-input-bg for better configuration 
+$m-inputs-filled-bg-hovered: #ececec; //Replace this $form-input-bg-hover for better configuration 
+$m-inputs-filled-disabled: rgba($gray-lighter, 0.65);
+$m-inputs-filled-label: $font-color-default;
+$m-inputs-filled-input: $font-color-default;
+$m-inputs-filled-placeholder: $form-input-placeholder-color;
+$m-inputs-filled-error: $font-color-default;
+$m-inputs-filled-border-color: $font-color-default;
+$m-inputs-filled-radio-color: $font-color-default;
+
+// Variables used for outlined
+$m-inputs-outlined-bg-enabled: $bg-color; //replace this with $form-input-bg for better configuration 
+$m-inputs-outlined-bg-hovered: $m-inputs-outlined-bg-enabled; //Replace this $form-input-bg-hover for better configuration 
+$m-inputs-outlined-bg-enabled-secondary: $bg-color-secondary;
+$m-inputs-outlined-bg-hovered-secondary: $m-inputs-outlined-bg-enabled-secondary;
+$m-inputs-outlined-disabled: $form-input-disabled-color;
+$m-inputs-outlined-disabled-bg-secondary: $form-input-disabled-color;
+$m-inputs-outlined-label: $font-color-default;
+$m-inputs-outlined-label-bg: $m-inputs-outlined-bg-enabled;
+$m-inputs-outlined-label-bg-secondary: $m-inputs-outlined-bg-enabled-secondary;
+$m-inputs-outlined-input: $font-color-default;
+$m-inputs-outlined-placeholder: $form-input-placeholder-color;
+$m-inputs-outlined-error: $font-color-default;
+$m-inputs-outlined-border-color: rgba(0, 0, 0, 0.38);
+$m-inputs-outlined-border-color-hover: $font-color-default;
+$m-inputs-outlined-radio-color: $font-color-default;
+
+
+// Advanced options
+$m-inputs-widget-textbox: '.mx-textbox.form-group';
+$m-inputs-widget-textarea: '.mx-textarea.form-group';
+$m-inputs-widget-datepicker: '.mx-datepicker.form-group';
+$m-inputs-widget-dropdown: '.mx-dropdown.form-group';
+$m-inputs-widget-referenceselector: '.mx-referenceselector.form-group';
+$m-inputs-widget-referencesetselector: '.mx-referencesetselector.form-group';
+$m-inputs-widget-datagrid: '.mx-grid .mx-grid-search-inputs .mx-grid-search-item';
+$m-inputs-widget-loginidtextbox: '.mx-loginidtextbox.form-group';
+$m-inputs-widget-passwordtextbox: '.mx-passwordtextbox.form-group';
+
+$m-inputs-widget-list: (
+    $m-inputs-widget-textbox),
+    ($m-inputs-widget-textarea),
+    ($m-inputs-widget-datepicker),
+    ($m-inputs-widget-dropdown),
+    ($m-inputs-widget-referenceselector),
+    ($m-inputs-widget-referencesetselector),
+    ($m-inputs-widget-datagrid),
+    ($m-inputs-widget-loginidtextbox),
+    ($m-inputs-widget-passwordtextbox
+);
+
+// Expert options
+
+$m-inputs-control-label-div: "label,.control-label";
+$m-inputs-form-control-div: ">input,>textarea,select,.form-control,.form-control-static,.mx-textarea-input";
+
+//Widget options
+
+$m-autocompletemultiselect-chip-bg-color: $bg-color-secondary;
+$m-autocompletemultiselect-chip-text-color: $font-color-default;
+$m-autocompletemultiselect-chip-bg-color-secondary: $bg-color;
+$m-autocompletemultiselect-chip-text-color-secondary: $font-color-default;

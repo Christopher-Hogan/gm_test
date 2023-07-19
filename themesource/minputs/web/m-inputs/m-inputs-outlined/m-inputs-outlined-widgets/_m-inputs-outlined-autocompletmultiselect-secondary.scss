@@ -1,0 +1,214 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    Please do not make change in this document. You may make changes in m-inputs-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+// This is styling for the Autocomplete Multiselect widget from ITvisors. You can download this widget from the marketplace.
+
+@mixin autocompletemultiselect-outlined-label-active {
+
+    .control-label,
+    .MuiFormLabel-root {
+        top: -6px;
+        font-size: 12px;
+        padding: 0px 4px;
+        color: $m-inputs-outlined-label;
+        background-color: $m-inputs-outlined-label-bg-secondary;
+    }
+}
+
+@if $m-inputs-outlined {
+
+    .m-inputs--bg-secondary[class*="mx-name-autocompleteMultiselect"] {
+        position: relative;
+
+        .MuiAutocomplete-inputRoot {
+            position: relative;
+            padding: 14px 0px 10px 16px;
+            min-height: 56px;
+            height: auto !important;
+            border: 1px solid $m-inputs-outlined-border-color;
+            border-radius: 4px;
+            background-color: $m-inputs-outlined-bg-enabled-secondary;
+            margin: 0px;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            column-gap: 4px;
+
+            &:hover {
+                &:not([disabled]) {
+                    border-color: $m-inputs-outlined-border-color-hover;
+                }
+            }
+
+            &::before, &::after {
+                display: none;
+            }
+
+            &.Mui-focused{
+                border: 2px solid $brand-primary!important;
+            }
+
+
+            input {
+                width: 0;
+                background-color: transparent;
+                font-size: $font-size-default;
+                color: $m-inputs-outlined-input;
+
+                &::placeholder {
+                    color: $m-inputs-outlined-placeholder;
+                }
+            }
+
+            .MuiChip-root {
+                background-color: $m-autocompletemultiselect-chip-bg-color-secondary;
+                color: $m-autocompletemultiselect-chip-text-color-secondary;
+                align-self: flex-start !important;
+
+                &:last-child {
+                    margin-right: 8px !important;
+                }
+            }
+
+            .MuiAutocomplete-endAdornment {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: $spacing-smaller;
+                top: 0px;
+                right: 8px;
+                min-height: 100%;
+
+                button {
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50px;
+                    color: $m-inputs-outlined-input;
+                }
+            }
+        }
+
+        //Handles disabled state of the widget
+        &:has(.Mui-disabled) {
+            &::before {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                content: '';
+                background-color: $m-inputs-outlined-disabled-bg-secondary;
+                z-index: 3;
+            }
+
+            .MuiAutocomplete-inputRoot::before {
+                border-bottom-style: solid;
+            }
+        }
+    }
+
+    .m-inputs--bg-secondary.MuiAutocomplete-inputRoot[class*="MuiInput-root"][class*="MuiInput-marginDense"] .MuiAutocomplete-input:first-child {
+        font-size: $font-size-default;
+        background-color: transparent;
+    }
+
+    // When you make use of a label
+
+    .m-inputs--bg-secondary[class*="mx-name-autocompleteMultiselect"]:has(.control-label),
+    .MuiFormControl-root:has(.MuiFormLabel-root) {
+        .MuiAutocomplete-inputRoot {
+            padding-top: 12px;
+            padding-bottom: 12px;
+
+        }
+
+        .control-label,
+        .MuiFormLabel-root {
+            top: 22px;
+            position: absolute;
+            left: 8px;
+            font-size: 14px;
+            height: auto;
+            color: $form-input-placeholder-color;
+            padding: 0px 8px;
+            z-index: 2;
+            transform: none;
+            margin: 0px;
+            transition: .1s ease-out;
+            transform-origin: left top;
+            pointer-events: none;
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: 1;
+        }
+
+        .MuiChip-root {
+            align-self: center;
+        }
+
+        // When a placeholder and a label are present.
+        &:has(input:placeholder-shown) {
+            @include autocompletemultiselect-outlined-label-active();
+        }
+
+        // For single select
+
+        &:not(:has(input[value=""])) {
+            @include autocompletemultiselect-outlined-label-active();
+
+            .MuiInputBase-input {
+                padding: 24px 16px 8px 16px;
+            }
+        }
+
+        .MuiInputBase-input {
+            padding: 24px 16px 8px 16px;
+        }
+
+        // For multiselect
+
+        &:has(.MuiChip-root, .Mui-focused) {
+            @include autocompletemultiselect-outlined-label-active();
+
+            .MuiInputBase-input:first-child {
+                padding: 0px !important;
+            }
+
+            .MuiInputBase-input {
+                padding: 0px !important;
+            }
+
+            &:has(.Mui-focused) {
+
+                .control-label,
+                .MuiFormLabel-root {
+                    color: $brand-primary;
+                }
+            }
+        }
+    }
+
+    // Popper when clicking on an inputfield.
+    .m-inputs--bg-secondary.MuiAutocomplete-popper {
+        .MuiPaper-root {
+            background-color: $m-inputs-outlined-bg-enabled-secondary;
+
+            ul li,
+            .MuiAutocomplete-noOptions {
+                font-size: $font-size-default;
+                color: $m-inputs-outlined-input;
+
+                .MuiCheckbox-colorSecondary.Mui-checked {
+                    color: $brand-primary;
+
+                    .MuiSvgIcon-root {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

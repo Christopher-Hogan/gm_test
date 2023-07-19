@@ -1,0 +1,73 @@
+/*
+    mInputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    Please do not make change in this document. You may make changes in m-inputs-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, Mendix
+*/
+
+// Styling for the default Mendix radio buttons.
+
+@if $m-inputs-filled {
+    .mx-radiobuttons.form-group {
+        position: relative;
+        min-height: 56px;
+
+        >label,
+        >.control-label {
+            position: absolute;
+            top: -8px;
+            left: 12px;
+            width: auto;
+            font-size: 12px;
+            font-weight: 400;
+            transition: .1s ease-out;
+            transform-origin: left top;
+            pointer-events: none;
+            color: $m-inputs-filled-label;
+            padding: 0px 4px;
+            text-align: start;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .mx-radiogroup {
+            padding: 16px;
+
+            input[type=radio] {
+                outline: none;
+            }
+
+            input[type=radio]:not(:disabled):not(:checked)::before {
+                border-color: $m-inputs-filled-radio-color;
+            }
+
+            input[type=radio]:disabled:not(:checked)::before {
+                border-color: $m-inputs-filled-disabled;
+            }
+
+            input[type=radio]:not(:disabled):checked::before {
+                border-color: $brand-primary;
+
+            }
+
+        }
+
+        .form-control-static {
+            padding: 16px;
+        }
+
+        &:has(input:disabled) {
+
+            >label,
+            >.control-label {
+                color: $m-inputs-filled-disabled;
+            }
+
+            .radio label {
+                color: $m-inputs-filled-disabled;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "TextBox": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for this input.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ],
+    "TextArea": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for this input.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ],
+    "DatePicker": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for this input.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ],
+    "DropDown": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for this input.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ],
+    "InputReferenceSetSelector": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for this input.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ],
+    "DataGrid": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for the search inputs.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ],
+    "itvisors.autocompletemultiselect.AutocompleteMultiselect": [
+        {
+            "name": "Background secondary",
+            "type": "Toggle",
+            "description": "Toggles the background secondary color for this input.",
+            "class": "m-inputs--bg-secondary"
+        }
+    ]
+}
+
